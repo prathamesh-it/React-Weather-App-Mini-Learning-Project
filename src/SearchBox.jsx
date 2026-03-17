@@ -4,6 +4,9 @@ import './SearchBox.css'
 import { useState } from 'react';
 
 export default function SearchBox({updateInfo}){  //updateInfo is props jo component me hi ayega
+//     updateInfo SearchBox मध्ये define नाही
+// ❗ तो WeatherApp कडून आलेला function आहे
+
     let[city , setCity] = useState("");
     let[error , setError] = useState(false);
     const API_URL = "https://api.openweathermap.org/data/2.5/weather";
@@ -43,7 +46,7 @@ export default function SearchBox({updateInfo}){  //updateInfo is props jo compo
             console.log(city);
             setCity("");
             let newinfo = await getWeatherInfo();
-            updateInfo(newinfo);
+            updateInfo(newinfo);  //// Calling parent's function!
             setError(false);   // <-- clear the old error
         }catch(err)
         {
