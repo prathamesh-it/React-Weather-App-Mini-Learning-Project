@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from 'react';
 import InfoBox from './infoBox';
 import SearchBox from './SearchBox';
@@ -196,3 +197,33 @@ export default function WeatherApp(){
 // // 👉 “Why not keep weatherInfo state inside SearchBox?”
 // कारण InfoBox ला पण तोच data हवा आहे
 // 👉 आणि React मध्ये state common parent कडे असतो
+=======
+import { useState } from 'react';
+import InfoBox from './infoBox';
+import SearchBox from './SearchBox';
+
+export default function WeatherApp(){
+
+    const [weatherInfo , setWeatherInfo] = useState({
+        city : "Delhi",
+        feelslike : 24.84,
+        temp : 25.05,
+        tempMin : 25.05,
+        tempMax : 25.05,
+        humidty : 47,
+        weather : "haze",
+    });
+
+    let updateInfo = (newinfo) =>{
+        setWeatherInfo(newinfo);
+    }
+
+    return(
+        <div style = {{textAlign : "center"}}>
+            <h2>Weather App By Delta</h2>
+            <SearchBox updateInfo={updateInfo}/>
+            <InfoBox info={weatherInfo}/>
+        </div>
+    )
+} 
+>>>>>>> f9bc231c01e9d9b0a1f68b91c11746ff348485a9
